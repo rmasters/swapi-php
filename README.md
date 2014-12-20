@@ -10,3 +10,7 @@ $swapi = new SWAPI;
 $swapi->vehicles()->get(1); // => Vehicle <X-wing>
 $swapi->planets()->get(7);  // => Planet <Mustafar>
 ```
+
+## Conventions
+
+1.  When a resource is not found, `null` will be returned.

@@ -8,7 +8,8 @@ class SWAPI
 {
     protected $http;
     protected $defaultOptions = [
-        'base_url' => 'https://swapi.co/api'
+        'base_url' => 'https://swapi.co/api',
+        'exceptions' => false,
     ];
 
     protected $vehicles;
