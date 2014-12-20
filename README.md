@@ -14,3 +14,7 @@ $swapi->planets()->get(7);  // => Planet <Mustafar>
 ## Conventions
 
 1.  When a resource is not found, `null` will be returned.
+
+## License
+
+[MIT Licensed](LICENSE)

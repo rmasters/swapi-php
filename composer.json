@@ -1,5 +1,15 @@
 {
     "name": "rmasters/swapi",
+    "license": "MIT",
+    "copyright": "Ross Masters 2014",
+    "authors": [
+        {
+            "name": "Ross Masters",
+            "email": "ross@rossmasters.com",
+            "homepage": "http://codinghobo.com/",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "guzzlehttp/guzzle": "~5.0",
         "psr/log": "~1.0"
