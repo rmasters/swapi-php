@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\Request;
 use Psr\Log\LoggerInterface;
+use JsonMapper;
 
 class Endpoint
 {
@@ -15,12 +16,14 @@ class Endpoint
     /** @var \Psr\Log\LoggerInterface */
     protected $logger;
 
-    protected $mappers;
+    /** @var \JsonMapper */
+    protected $mapper;
 
-    public function __construct(Client $http, LoggerInterface $logger)
+    public function __construct(Client $http, LoggerInterface $logger, JsonMapper $mapper)
     {
         $this->http = $http;
         $this->logger = $logger;
+        $this->mapper = $mapper;
     }
 
     public function setClient(Client $http)
@@ -31,6 +34,11 @@ class Endpoint
     public function setLogger(LoggerInterface $logger)
     {
         $this->logger = $logger;
+    }
+
+    public function setMapper(JsonMapper $mapper)
+    {
+        $this->mapper = $mapper;
     }
 
     protected function handleResponse(Response $response, Request $request)

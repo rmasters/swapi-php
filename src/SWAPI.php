@@ -2,45 +2,57 @@
 
 namespace SWAPI;
 
-use GuzzleHttp;
+use GuzzleHttp\Client;
+use Psr\Log\NullLogger;
+use JsonMapper;
 
 class SWAPI
 {
-    protected $http;
-    protected $defaultOptions = [
-        'base_url' => 'https://swapi.co/api',
-        'exceptions' => false,
-    ];
-
     protected $vehicles;
     protected $planets;
 
+    private $http;
+    private $logger;
+    private $mapper;
+
     public function __construct()
     {
-        $this->http = this->createHttpClient();
-
-        $this->vehicles = new Endpoints\Vehicles($this->http);
-        $this->planets = new Endpoints\Planets($this->http);
+        $http = $this->createHttpClient();
+        $logger = $this->createLogger();
+        $mapper = $this->createMapper();
     }
 
-    protected function createHttpClient(array $options = [])
+    protected function createHttpClient()
     {
-        $options = array_merge_recursive($this->defaultOptions, $options);
-        return new GuzzleHttp\Client($options);
+        return new Client([
+            'base_url' => 'https://swapi.co/api',
+            'exceptions' => false,
+        ]);
     }
 
-    protected function getHttpClient()
+    protected function createLogger()
     {
-        return $this->http;
+        return new NullLogger;
     }
 
-    public function vehicles()
+    protected function createMapper()
     {
+        return new JsonMapper;
+    }
+
+    public function vehicles($fresh = false)
+    {
+        if (!isset($this->vehicles) || $fresh) {
+            $this->vehicles = new Endpoints\Vehicles($this->http, $this->logger, $this->mapper);
+        }
         return $this->vehicles;
     }
 
-    public function planets()
+    public function planets($fresh = false)
     {
-        retrun $this->planets;
+        if (!isset($this->planets) || $fresh) {
+            $this->planets = new Endpoints\Planets($this->http, $this->logger, $this->mapper);
+        }
+        return $this->planets;
     }
 }
