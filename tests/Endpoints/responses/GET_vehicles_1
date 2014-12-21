@@ -1,0 +1,14 @@
+HTTP/1.1 404 NOT FOUND
+Date: Sun, 21 Dec 2014 21:43:57 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Set-Cookie: __cfduid=d9f0abaeee38cb1a9ac2025e9bd74bd881419198235; expires=Mon, 21-Dec-15 21:43:55 GMT; path=/; domain=.swapi.co; HttpOnly
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Vary: Accept, Cookie
+Via: 1.1 vegur
+Server: cloudflare-nginx
+CF-RAY: 19c7420ac9b00a72-LHR
+
+{"detail":"Not found"}

@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Date: Sun, 21 Dec 2014 21:26:21 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Set-Cookie: __cfduid=d099f1ce6123a9cadaebff711f19448f41419197180; expires=Mon, 21-Dec-15 21:26:20 GMT; path=/; domain=.swapi.co; HttpOnly
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Vary: Accept, Cookie
+Via: 1.1 vegur
+Server: cloudflare-nginx
+CF-RAY: 19c7284cfe3c0a78-LHR
+
+{"name":"Sand Crawler","model":"Digger Crawler","manufacturer":"Corellia Mining Corporation","cost_in_credits":"150000","length":"36.8 ","max_atmosphering_speed":"30","crew":"46","passengers":"30","cargo_capacity":"50000","consumables":"2 months","vehicle_class":"wheeled","pilots":[],"films":["http://swapi.co/api/films/1/","http://swapi.co/api/films/5/"],"created":"2014-12-10T15:36:25.724000Z","edited":"2014-12-20T21:30:21.661000Z","url":"http://swapi.co/api/vehicles/4/"}

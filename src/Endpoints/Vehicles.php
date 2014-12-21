@@ -2,7 +2,7 @@
 
 namespace SWAPI\Endpoints;
 
-use SWAPI\Mappers\VehicleMapper;
+use SWAPI\Models\Vehicle;
 
 class Vehicles extends Endpoint
 {
@@ -12,7 +12,7 @@ class Vehicles extends Endpoint
         $response = $this->http->send($request);
 
         if ($response->getStatusCode() == 200) {
-            return (new VehicleMapper)->item($response->json());
+            return $this->mapper->map($response->json(), new Vehicle);
         }
 
         return $this->handleResponse($response, $request);
