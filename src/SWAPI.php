@@ -8,6 +8,9 @@ use JsonMapper;
 
 class SWAPI
 {
+    // I will forget to update this regularly
+    const VERSION = '0.0.1';
+
     protected $vehicles;
     protected $planets;
 
@@ -17,16 +20,22 @@ class SWAPI
 
     public function __construct()
     {
-        $http = $this->createHttpClient();
-        $logger = $this->createLogger();
-        $mapper = $this->createMapper();
+        $this->http = $this->createHttpClient();
+        $this->logger = $this->createLogger();
+        $this->mapper = $this->createMapper();
     }
 
     protected function createHttpClient()
     {
         return new Client([
-            'base_url' => 'https://swapi.co/api',
-            'exceptions' => false,
+            'base_url' => 'http://swapi.co/api/',
+            'default' => [
+                'exceptions' => false,
+                'headers' => [
+                    'User-Agent' => sprintf('php-swapi/%s', static::VERSION),
+                    'Accept' => 'application/json',
+                ],
+            ],
         ]);
     }
 
@@ -38,6 +47,11 @@ class SWAPI
     protected function createMapper()
     {
         return new JsonMapper;
+    }
+
+    public function setMapper(JsonMapper $mapper)
+    {
+        $this->mapper = $mapper;
     }
 
     public function vehicles($fresh = false)

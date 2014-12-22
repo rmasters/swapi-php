@@ -20,9 +20,14 @@ class EndpointBase extends \PHPUnit_Framework_TestCase
     protected function getClient()
     {
         return new Client([
-            'base_url' => 'https://swapi.co/api',
+            'base_url' => 'http://swapi.co/api/',
             'defaults' => [
                 'exceptions' => false,
+                'headers' => [
+                    'User-Agent' => sprintf('php-swapi/%s', 'testing'),
+                    'Accept' => 'application/json',
+                ],
+
             ],
         ]);
     }
