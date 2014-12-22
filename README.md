@@ -1,5 +1,9 @@
 # PHP library for [SWAPI](http://swapi.co/)
 
+[![Build status](https://img.shields.io/travis/rmasters/swapi-php.svg?style=flat-square)](https://travis-ci.org/rmasters/swapi-php/)
+[![Stable release](https://img.shields.io/packagist/v/rmasters/swapi.svg?style=flat-square)](http://packagist.org/packages/rmasters/swapi)
+[![License](https://img.shields.io/packagist/l/rmasters/swapi.svg?style=flat-square)](LICENSE)
+
 ## Usage
 
 Install with Composer: `composer require "rmasters/swapi:~1.0"`.
