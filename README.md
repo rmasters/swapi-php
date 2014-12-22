@@ -9,11 +9,26 @@ $swapi = new SWAPI;
 
 $swapi->vehicles()->get(1); // => Vehicle <X-wing>
 $swapi->planets()->get(7);  // => Planet <Mustafar>
+
+$swapi->people()->get(9999); // => null (not-found)
 ```
 
-## Conventions
+## Work in progress
 
-1.  When a resource is not found, `null` will be returned.
+-   [ ] Films
+-   [ ] People
+-   [ ] Planets
+-   [ ] Species
+-   [ ] Starships
+-   [ ] Vehicles
+
+## Running tests and contributing
+
+Install dependencies with `composer install --dev` and run `vendor/bin/phpunit`
+to run the testsuite. The test suite comprises of:
+
+-   [tests/Endpoints](tests/Endpoints) - tests that use mocked sample responses,
+-   [tests/Functional](tests/Functional) - tests that use the live API, to spot changes.
 
 ## License
 
