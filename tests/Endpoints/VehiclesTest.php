@@ -2,7 +2,7 @@
 
 namespace SWAPI\Tests\Endpoints;
 
-use SWAPI\Endpoints\Vehicles;
+use SWAPI\Endpoints\VehiclesEndpoint;
 
 use GuzzleHttp\Subscriber\Mock;
 use GuzzleHttp\Message\Response;
@@ -13,14 +13,14 @@ use JsonMapper;
 class VehiclesTest extends EndpointBase
 {
     /**
-     * @var \SWAPI\Endpoints\Vehicles
+     * @var \SWAPI\Endpoints\VehiclesEndpoint
      */
     protected $vehicles;
 
     public function setUp()
     {
         parent::setUp();
-        $this->vehicles = new Vehicles($this->client, new NullLogger, $this->mapper);
+        $this->vehicles = new VehiclesEndpoint($this->client, new NullLogger, $this->mapper);
     }
 
     public function testFindById()

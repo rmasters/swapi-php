@@ -2,31 +2,34 @@
 
 namespace SWAPI\Models;
 
-class Species
+class Character
 {
     /** @var string */
     public $name;
     /** @var string */
-    public $classification;
+    public $birth_year;
     /** @var string */
-    public $designation;
+    public $eye_color;
     /** @var string */
-    public $average_height;
+    public $gender;
     /** @var string */
-    public $average_lifespan;
-    public $eye_colors;
+    public $hair_color;
+    /** @var int cm */
+    public $height;
+    /** @var int kg */
+    public $mass;
     /** @var string */
-    public $hair_colors;
-    /** @var string */
-    public $skin_colors;
-    /** @var string */
-    public $language;
+    public $skin_color;
     /** @var \SWAPI\Models\Planet */
     public $homeworld;
-    /** @var \SWAPI\Models\Character[] */
-    public $people;
     /** @var \SWAPI\Models\Film[] */
-    public $films;
+    public $films = [];
+    /** @var \SWAPI\Models\Species[] */
+    public $species = [];
+    /** @var \SWAPI\Models\Starship[] */
+    public $starships = [];
+    /** @var \SWAPI\Models\Vehicle[] */
+    public $vehicles = [];
     /** @var \DateTime */
     public $created;
     /** @var \DateTime */
