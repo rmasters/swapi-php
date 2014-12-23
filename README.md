@@ -24,7 +24,7 @@ $swapi->people()->get(9999); // => null (not-found)
 -   [ ] Planets
 -   [ ] Species
 -   [ ] Starships
--   [ ] Vehicles
+-   [x] Vehicles
 
 ## Running tests and contributing
 
