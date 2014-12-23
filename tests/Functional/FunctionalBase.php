@@ -7,6 +7,9 @@ use JsonMapper;
 
 class FunctionalBase extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \SWAPI\SWAPI
+     */
     protected $swapi;
 
     public function setUp()

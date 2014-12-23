@@ -7,8 +7,14 @@ use JsonMapper;
 
 class EndpointBase extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \GuzzleHttp\Client
+     */
     protected $client;
 
+    /**
+     * @var \JsonMapper
+     */
     protected $mapper;
 
     public function setUp()

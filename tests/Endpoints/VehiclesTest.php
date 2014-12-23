@@ -12,6 +12,9 @@ use JsonMapper;
 
 class VehiclesTest extends EndpointBase
 {
+    /**
+     * @var \SWAPI\Endpoints\Vehicles
+     */
     protected $vehicles;
 
     public function setUp()

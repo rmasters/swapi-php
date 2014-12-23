@@ -7,6 +7,7 @@ use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\Request;
 use Psr\Log\LoggerInterface;
 use JsonMapper;
+use SWAPI\Models\Collection;
 
 class Endpoint
 {
@@ -41,11 +42,26 @@ class Endpoint
         $this->mapper = $mapper;
     }
 
-    protected function handleResponse(Response $response, Request $request)
+    protected function handleResponse(Response $response, Request $request, $default = null)
     {
         switch ($response->getStatusCode()) {
             case 404:
-                return null;
+                return $default;
         }
+    }
+
+    protected function hydrateOne(array $data, $modelInstance)
+    {
+        return $this->mapper->map($data, $modelInstance);
+    }
+
+    protected function hydrateMany(array $data, $modelName)
+    {
+        $collection = new Collection($this->mapper->mapArray($data['results'], [], $modelName));
+        $collection->setEndpoint($this);
+        $collection->setNext($data['next']);
+        $collection->setPrevious($data['previous']);
+
+        return $collection;
     }
 }

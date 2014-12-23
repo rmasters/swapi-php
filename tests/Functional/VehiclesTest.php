@@ -6,11 +6,16 @@ class VehiclesTest extends FunctionalBase
 {
     public function testList()
     {
-        $this->swapi->vehicles()->index();
+        $vehicles = $this->swapi->vehicles()->index();
+
+        $this->assertInstanceOf('SWAPI\Models\Collection', $vehicles);
     }
 
     public function testGet()
     {
-        $res = $this->swapi->vehicles()->get(4);
+        $vehicle = $this->swapi->vehicles()->get(4);
+
+        $this->assertInstanceOf('SWAPI\Models\Vehicle', $vehicle);
+        $this->assertEquals('http://swapi.co/api/vehicles/4/', $vehicle->url);
     }
 }
