@@ -34,9 +34,9 @@ class Collection extends \ArrayObject
     {
         if ($url instanceof Collection) {
             $this->next =& $url;
-        } else if (is_numeric($url)) {
+        } elseif (is_numeric($url)) {
             $this->next = intval($url);
-        } else if (!is_null($url)) {
+        } elseif (!is_null($url)) {
             // Attempt to get the page=%d value
             $this->next = self::getPageFromQueryString($url);
         }
@@ -46,9 +46,9 @@ class Collection extends \ArrayObject
     {
         if ($url instanceof Collection) {
             $this->previous =& $url;
-        } else if (is_numeric($url)) {
+        } elseif (is_numeric($url)) {
             $this->previous = intval($url);
-        } else if (!is_null($url)) {
+        } elseif (!is_null($url)) {
             // Attempt to get the page=%d value
             $this->previous = self::getPageFromQueryString($url);
         }
