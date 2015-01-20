@@ -127,4 +127,31 @@ class SWAPI
         }
         return $this->vehicles;
     }
+
+    /**
+     * @param string $url
+     * @return object SWAPI Model
+     * @throws \UnexpectedValueException When given an unrecognised URI
+     */
+    public function getFromUri($uri)
+    {
+        if (preg_match("/\/api\/(\w+)\/(\d+)(\/|$)/", $uri, $matches) !== false) {
+            switch (strtolower($matches[1])) {
+                case "characters":
+                    return $this->characters()->get($matches[2]);
+                case "films":
+                    return $this->films()->get($matches[2]);
+                case "planets":
+                    return $this->planets()->get($matches[2]);
+                case "species":
+                    return $this->species()->get($matches[2]);
+                case "starships":
+                    return $this->starships()->get($matches[2]);
+                case "vehicles":
+                    return $this->vehicles()->get($matches[2]);
+            }
+        }
+
+        throw new \UnexpectedValueException(sprintf("Could not match a URI to an endpoint handler for %s", $uri));
+    }
 }
