@@ -40,6 +40,7 @@ class Endpoint
     public function setMapper(JsonMapper $mapper)
     {
         $this->mapper = $mapper;
+        $this->mapper->bEnforceMapType = false;
     }
 
     protected function handleResponse(Response $response, Request $request, $default = null)
@@ -52,7 +53,6 @@ class Endpoint
 
     protected function hydrateOne(array $data, $modelInstance)
     {
-        $this->mapper->bEnforceMapType = false;
         return $this->mapper->map($data, $modelInstance);
     }
 
