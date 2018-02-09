@@ -8,12 +8,16 @@
             "email": "ross@rossmasters.com",
             "homepage": "http://codinghobo.com/",
             "role": "Developer"
+        },
+        {
+            "name": "Frank Wong",
+            "email": "frankwkw@gmail.com"
         }
     ],
     "require": {
         "guzzlehttp/guzzle": "~5.0",
         "psr/log": "~1.0",
-        "netresearch/jsonmapper": "~0.4"
+        "netresearch/jsonmapper": "~0.11"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",

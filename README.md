@@ -8,6 +8,8 @@
 
 Install with Composer: `composer require "rmasters/swapi:~1.0"`.
 
+10/02/2018 - Fix by Frank Wong to support array when mapping via JsonMapper 0.11.
+
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
 use SWAPI\SWAPI;

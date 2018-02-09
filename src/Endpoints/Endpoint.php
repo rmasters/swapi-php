@@ -52,6 +52,7 @@ class Endpoint
 
     protected function hydrateOne(array $data, $modelInstance)
     {
+        $this->mapper->bEnforceMapType = false;
         return $this->mapper->map($data, $modelInstance);
     }
 
