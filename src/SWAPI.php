@@ -30,7 +30,7 @@ class SWAPI
     protected function createHttpClient()
     {
         return new Client([
-            'base_url' => 'http://swapi.co/api/',
+            'base_url' => 'https://swapi.dev/api/',
             'default' => [
                 'exceptions' => false,
                 'headers' => [
@@ -137,7 +137,7 @@ class SWAPI
     {
         if (preg_match("/\/api\/(\w+)\/(\d+)(\/|$)/", $uri, $matches) !== false) {
             switch (strtolower($matches[1])) {
-                case "characters":
+                case "people":
                     return $this->characters()->get($matches[2]);
                 case "films":
                     return $this->films()->get($matches[2]);
